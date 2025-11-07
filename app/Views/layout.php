@@ -11,6 +11,7 @@
 <nav class="navbar navbar-dark bg-dark mb-3">
   <div class="container">
     <a class="navbar-brand" href="/">Flight Booking</a>
+    <a class="nav-link text-white" href="/admin/bookings">Manage Bookings</a>
   </div>
 </nav>
 
@@ -25,6 +26,7 @@
   <?= $content ?? '' ?>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/js/app.js"></script>
 </body>
 </html>

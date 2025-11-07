@@ -34,7 +34,7 @@
       </div>
 
       <hr>
-      <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex justify-content-between align-items-center mb-4">
         <h6 class="mb-0">Passengers</h6>
         <button class="btn btn-sm btn-outline-primary" id="btn-add-pax">+ Add Passenger</button>
       </div>

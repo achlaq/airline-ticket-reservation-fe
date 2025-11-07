@@ -61,6 +61,13 @@ class Bookings extends BaseController
         ]);
     }
 
+    public function detail(string $pnr) { 
+        return view('layout', [ 
+            'title' => 'Booking Detail', 
+            'content' => view('booking_detail', ['pnr' => $pnr]) 
+        ]); 
+    }
+
     public function update(string $pnr)
     {
         $payload = array_filter([
