@@ -22,8 +22,6 @@ class AdminBookings extends BaseController
             'status' => $this->request->getGet('status') ?? null,
             'from'   => $this->request->getGet('from') ?? null,
             'to'     => $this->request->getGet('to') ?? null,
-            'page'   => (int)($this->request->getGet('page') ?? 0),
-            'size'   => (int)($this->request->getGet('size') ?? 10),
         ];
         $res = $this->api->get('/bookings/search', $q);
         return view('admin/partials/bookings_table', [

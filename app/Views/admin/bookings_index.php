@@ -26,8 +26,6 @@
       <div class="col-md-2 d-flex align-items-end">
         <button class="btn btn-primary w-100">Search</button>
       </div>
-      <input type="hidden" name="page" value="0">
-      <input type="hidden" name="size" value="10">
     </form>
 
     <div id="list">

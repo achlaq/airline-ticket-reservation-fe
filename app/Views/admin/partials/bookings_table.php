@@ -1,8 +1,6 @@
 <?php
-  $content    = $data['content'] ?? [];
-  $page       = $data['number'] ?? 0;
-  $size       = $data['size'] ?? ($q['size'] ?? 10);
-  $totalPages = $data['totalPages'] ?? 0;
+  // Sekarang $data langsung array list booking
+  $content = $data ?? [];
 ?>
 
 <?php if (empty($content)): ?>
@@ -20,8 +18,8 @@
         <?php
           $pnr      = $row['pnr'];
           $pnrDisp  = esc($pnr);
-          $pnrUrl   = rawurlencode($pnr); // aman untuk dimasukkan ke URL
-          // Buat ID aman untuk collapse (hindari '/', spasi, dll.)
+          $pnrUrl   = rawurlencode($pnr); // aman untuk URL
+          // ID aman untuk collapse
           $collapseId = 'edit-' . preg_replace('/[^A-Za-z0-9_-]/', '-', $pnr);
         ?>
         <tr>
@@ -54,7 +52,6 @@
 
         <tr>
           <td colspan="7">
-            <!-- Pindahkan .collapse ke DIV di dalam TD -->
             <div id="<?= $collapseId ?>" class="collapse">
               <form class="row g-2" method="post" action="/admin/bookings/<?= $pnrUrl ?>/update">
                 <?= csrf_field() ?>
@@ -78,23 +75,4 @@
       </tbody>
     </table>
   </div>
-
-  <!-- Pagination -->
-  <nav class="d-flex justify-content-between align-items-center mt-2">
-    <div>Page <?= $page+1 ?>/<?= max(1,$totalPages) ?></div>
-    <div class="btn-group">
-      <button class="btn btn-outline-secondary"
-              hx-get="/admin/bookings/search"
-              hx-target="#list"
-              hx-include="#form-admin-search"
-              hx-vals='{"page":"<?= max(0,$page-1) ?>"}'
-              <?= $page<=0?'disabled':'' ?>>« Prev</button>
-      <button class="btn btn-outline-secondary"
-              hx-get="/admin/bookings/search"
-              hx-target="#list"
-              hx-include="#form-admin-search"
-              hx-vals='{"page":"<?= min($totalPages-1,$page+1) ?>"}'
-              <?= ($page >= $totalPages-1)?'disabled':'' ?>>Next »</button>
-    </div>
-  </nav>
 <?php endif; ?>
