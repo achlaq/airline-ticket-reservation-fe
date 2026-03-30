@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: airline_app
+    ports:
+      - "8080:80"
+    volumes:
+      # Mount the application code from the host
+      - .:/var/www/html
+      # Use an anonymous volume to preserve the vendor directory from the image
+      - /var/www/html/vendor
+    environment:
+      CI_ENVIRONMENT: development
