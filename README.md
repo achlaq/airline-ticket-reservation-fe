@@ -18,14 +18,6 @@ The development environment is fully containerized using Docker and Docker Compo
 
 ---
 
-## Application Preview
-
-(It is recommended to replace the placeholder below with a screenshot or GIF of the application.)
-
-![Application Screenshot](https://via.placeholder.com/800x500.png?text=Application+Screenshot)
-
----
-
 ## Technology Stack
 
 -   **Backend (BFF):** CodeIgniter 4 on PHP 8.2
