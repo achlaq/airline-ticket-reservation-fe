@@ -68,6 +68,15 @@ class Bookings extends BaseController
         ]); 
     }
 
+    public function ajaxGetDetails(string $pnr)
+    {
+        $res = $this->api->get('/bookings/'.$pnr);
+        if ($res['code'] !== 200) {
+            return "<div class='alert alert-danger'>Could not find booking {$pnr}.</div>";
+        }
+        return view('partials/booking_manage_content', ['booking' => $res['body']]);
+    }
+
     public function update(string $pnr)
     {
         $payload = array_filter([

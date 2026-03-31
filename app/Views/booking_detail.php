@@ -1,24 +1,20 @@
-<div class="card">
-  <div class="card-header">Booking Detail (PNR: <?= esc($pnr) ?>)</div>
-  <div class="card-body">
-    <form method="post" action="/bookings/<?= esc($pnr) ?>/update" class="row g-3">
-      <?= csrf_field() ?>
-      <div class="col-md-4">
-        <label class="form-label">Name</label>
-        <input name="contactName" class="form-control" placeholder="optional">
-      </div>
-      <div class="col-md-4">
-        <label class="form-label">Email</label>
-        <input type="email" name="contactEmail" class="form-control" placeholder="optional">
-      </div>
-      <div class="col-md-4">
-        <label class="form-label">Phone</label>
-        <input name="contactPhone" class="form-control" placeholder="optional">
-      </div>
-      <div class="col-12">
-        <button class="btn btn-primary">Update</button>
-        <a class="btn btn-secondary" href="/">Home</a>
-      </div>
-    </form>
-  </div>
+<div class="row justify-content-center">
+    <div class="col-md-10 col-lg-8">
+        <h1 class="mb-4">Manage Your Booking</h1>
+        
+        <div hx-get="/bookings/ajax_details/<?= esc($pnr) ?>" 
+             hx-trigger="load" 
+             hx-indicator="#loading-spinner">
+            
+            <!-- Loading Spinner -->
+            <div id="loading-spinner" class="text-center p-5">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="mt-2">Loading booking details...</p>
+            </div>
+
+            <!-- Booking details will be loaded here -->
+        </div>
+    </div>
 </div>
