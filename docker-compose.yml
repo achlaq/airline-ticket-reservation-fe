@@ -7,6 +7,14 @@ services:
     ports:
       - "8080:80"
     volumes:
+      # Mount the application source code from the host
       - .:/var/www/html
+      # Use a named volume to persist the vendor directory,
+      # preventing it from being overwritten by the host mount.
+      - vendor:/var/www/html/vendor
     environment:
       CI_ENVIRONMENT: development
+
+# Define the named volume
+volumes:
+  vendor:
